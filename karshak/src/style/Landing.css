@@ -3,7 +3,8 @@
 body {
 margin: 0;
 font-family: 'Lato', sans-serif;
-overflow-y: hidden;  }
+overflow-y: hidden; 
+width: 900px; }
 
 .btn{
 /* display: inline-block; */

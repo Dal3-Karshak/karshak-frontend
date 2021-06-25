@@ -13,11 +13,11 @@ export class Header extends Component {
                     
                         {/* <Navbar.Brand href="#home">Dalea' Karshak</Navbar.Brand> */}
                         <Nav className="me-auto">
-                            <Nav.Link className='navbutton' href="#home">Home</Nav.Link>
-                            <Nav.Link className='navbutton' href="#features">Search</Nav.Link>
-                            <Nav.Link className='navbutton' href="#pricing">My dishes</Nav.Link>
-                            <Nav.Link className='navbutton' href="#pricing">Logout</Nav.Link>
-                            <Nav.Link className='navbutton' href="#pricing">About Us</Nav.Link>
+                            <Nav.Link className='navbutton' href="./">Home</Nav.Link>
+                            <Nav.Link className='navbutton' href="./search">Search</Nav.Link>
+                            <Nav.Link className='navbutton' href="./mydiches">My dishes</Nav.Link>
+                            <Nav.Link className='navbutton' href="./logi">Logout</Nav.Link>
+                            <Nav.Link className='navbutton' href="./mydiches">About Us</Nav.Link>
                         </Nav>
                   
                 </Navbar>
