@@ -3,13 +3,15 @@ import { withAuth0 } from '@auth0/auth0-react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Header from './Header';
+import Footer from './Footer';
 
 export class Home extends Component {
     render() {
         const user=this.props.auth0
         return (
             <div>
+                <Header/>
               <h2>welcome </h2>  
               <CardGroup>
                     <Card>
@@ -36,7 +38,7 @@ export class Home extends Component {
                     </Card>
              
                 </CardGroup>
-
+                <Footer/>
             </div>
         )
     }
