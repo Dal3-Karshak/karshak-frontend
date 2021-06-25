@@ -1,0 +1,14 @@
+.logo{
+    width: 7.5rem;
+    /* display: inline; */
+}
+.navbar{
+    display: inline-block;
+    float: right;
+    
+}
+.navbutton{
+    width: 10rem;
+    font-size: 2rem;
+    height: 3rem;
+}
