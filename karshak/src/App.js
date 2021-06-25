@@ -4,13 +4,13 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Landing from './Landing';
+import Footer from './Footer';
 export class App extends Component {
   render() {
     return (
       <div>
-        <Router>
-          
-        </Router>
+        
       </div>
     )
   }
