@@ -1,0 +1,19 @@
+body{
+    margin: 0 auto;
+text-align: center;
+
+}
+.searchForm{
+    width: 30rem;
+    /* margin-left: -50px; */
+
+}
+
+
+
+.forms{
+
+display: grid;
+grid-template-columns: 1fr;
+gap: 50px;
+}
