@@ -1,8 +1,9 @@
-body{
+/* body{
     margin: 0 auto;
 text-align: center;
+overflow: scroll;
 
-}
+} */
 .searchForm{
     width: 30rem;
     /* margin-left: -50px; */
