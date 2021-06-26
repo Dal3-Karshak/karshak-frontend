@@ -88,7 +88,7 @@ export class Search extends Component {
                     </Form>
                
                 </div>
-                {this.state.showCards&& <SearchCards searchCards={this.state.searchCards}/> }
+                {this.state.showCards&& <SearchCards searchCards={this.state.searchCards} myDishes={this.props.myDishes}/> }
                 {/* <SearchCards searchCards={this.state.searchCards}  /> */}
 
             </div>
