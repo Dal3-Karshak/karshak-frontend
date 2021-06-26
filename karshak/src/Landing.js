@@ -10,7 +10,7 @@ export class Landing extends Component {
 
             <div className='container'>
         
-            <video className='video' autoPlay loop muted width={1520} > 
+            <video className='video' autoPlay loop muted width={1536} > 
               <source src={video} type="video/mp4" />
             </video>
     
