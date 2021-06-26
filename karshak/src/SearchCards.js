@@ -8,7 +8,7 @@ export class SearchCards extends Component {
             <div>
                 <CardGroup>
 
-                    {this.props.SearchCards.map((item, idx) => {
+                    {this.props.searchCards.map((item, idx) => {
 
                         return (<div>
 

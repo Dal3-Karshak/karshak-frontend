@@ -3,8 +3,8 @@
 body {
 margin: 0;
 font-family: 'Lato', sans-serif;
-overflow-y: hidden; 
-width: 900px; 
+/* overflow-y: hidden;  */
+/* width: 900px;  */
 
 }
 
@@ -30,11 +30,14 @@ color: #fff;
   
 }
   
-.container { position:relative; }
+.container { position:relative;
+    width: 100%;
+ }
 .container video {
 position:relative;
 z-index:0;
 margin-left: -15px;
+width: 100%;
 }
 .overlay {
 position:absolute;

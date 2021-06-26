@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import SearchCards from './SearchCards';
+import Header from './Header';
 import './Search.css';
 
 import axios from 'axios';
@@ -13,6 +14,7 @@ export class Search extends Component {
         super(props);
         this.state={
         searchCards:[],
+        showCards:false
         }
             
     }
@@ -22,13 +24,16 @@ export class Search extends Component {
     getFood= async(e)=>{ 
         e.preventDefault();
         const query=e.target.query.value;
-        const cusion=e.target.cusion.value;
+        const cuisine=e.target.cusion.value;
+        console.log(cuisine);
         let foodURL='http://localhost:8000/';
-        let url =`${foodURL}food/getfood?foodname=${query}&cuision=${cusion}`
+        let url =`${foodURL}food/getfood?foodName=${query}&cuisine=${cuisine}`
         let newData=await axios.get(url);
         this.setState({
-            searchCards:newData.data,
+            searchCards:newData.data.results,
+            showCards:true,
         })
+        console.log(this.state.searchCards);
     }
 
 
@@ -36,6 +41,7 @@ export class Search extends Component {
     render() {
         return (
             <div>
+                <Header/>
                 <p>search page</p>
                 <div className='forms'>
                     <Form className='searchForm' onSubmit={(e)=>this.getFood(e)}>
@@ -82,7 +88,8 @@ export class Search extends Component {
                     </Form>
                
                 </div>
-                <SearchCards searchCards={this.state.searchCards}  />
+                {this.state.showCards&& <SearchCards searchCards={this.state.searchCards}/> }
+                {/* <SearchCards searchCards={this.state.searchCards}  /> */}
 
             </div>
         )
