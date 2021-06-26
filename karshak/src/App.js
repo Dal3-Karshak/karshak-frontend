@@ -14,7 +14,17 @@ import { withAuth0 } from '@auth0/auth0-react';
 
 
 
+
 export class App extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      myDishes:[],
+    }
+  }
+
+
+  
   render() {
     return (
       <div>
@@ -26,7 +36,7 @@ export class App extends Component {
               {this.props.auth0.isAuthenticated ? <Home /> : <Landing />}
             </Route>
             <Route exact path="/search">
-              <Search/>
+              <Search myDishes={this.state.myDishes}/>
             </Route>
             <Route exact path="/mydishes">
 
@@ -42,6 +52,7 @@ export class App extends Component {
     )
   }
 }
+
 
 export default withAuth0(App);
 
