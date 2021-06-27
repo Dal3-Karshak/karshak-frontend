@@ -67,16 +67,20 @@ export class Mydishes extends Component {
             image: this.state.image,
             id: this.state.id,
             title:this.state.title,
-
+            index:this.state.indexNum,
         }
         console.log('my dish data ', mydishData);
-        console.log('indexNumber : ', this.state.indexNum);
-        // let foodURL = 'http://localhost:8000/';
-
-        // const data= await axios.put(`${foodURL}food/updateMydishes?${this.state.indexNum}`,mydishData)
-        // this.setState({
-        //     myDishes: data.data,
-        // })
+        let foodURL = 'http://localhost:8000/';
+        let URL= `${foodURL}food/updateFoodDishes`
+        axios.put(URL , mydishData)
+        .then(result=>{
+            this.setState({
+                myDishes:result.data.food
+            })
+        })
+        .catch(err =>{
+            console.log("Bad req")
+        })
     };
 
     showUpdateForm = (idx) => {
@@ -128,18 +132,17 @@ export class Mydishes extends Component {
 
                         return (<div>
 
-                            <Card >
-
+                            <Card key={index}>
                                 <Card.Body style={{ width: '25rem' }}   >
                                     <Card.Title>  <p>{item.title}</p></Card.Title>
                                     <Card.Img variant="top" src={item.image} />
 
                                     <Form onSubmit={(event) => { this.updateMydishes(event) }}>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="text" placeholder="enter feedback" name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.feedBack} />
+                                            <Form.Control type="text" placeholder={`Your Feed Back : ${this.state.myDishes[index].feedback}`} name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="checkbox" placeholder="enter feedback" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.tried} />
+                                            <Form.Control type="checkbox" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.myDishes[index].tried}  defaultChecked={this.state.myDishes[index].tried}/>
                                         </Form.Group>
                                         <Button variant="primary" type="submit" onClick={() => this.showUpdateForm(index)}>
                                             Submit
