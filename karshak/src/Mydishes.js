@@ -18,6 +18,7 @@ export class Mydishes extends Component {
             myDishes: [],
             stop: true,
             feedBack: '',
+            tried:false,
             indexNum: 0,
         }
     }
@@ -46,7 +47,7 @@ export class Mydishes extends Component {
         const idx = index;
         let foodURL = 'http://localhost:8000/';
        // http://localhost:8000/food/deleteFoodDishes?email=saadoundhirat93@gmail.com&index=4
-        let data = await axios.delete(`${foodURL}food/deleteFoodDishes?email=saadoundhirat93@gmail.com&index=${idx}`);
+        let data = await axios.delete(`${foodURL}food/deleteFoodDishes?email=${email}&index=${idx}`);
 
         console.log("response",data.data)
         this.setState({
@@ -54,22 +55,58 @@ export class Mydishes extends Component {
         })
     }
 
-    addFeedback = async (index) => {
-        const { user } = this.props.auth0;
-        const email = user.email;
-        const idx = index;
+    updateMydishes = async (event) => {
+       event.preventDefault();
+       const mydishData = {
+        feedBack: event.target.feedBack.value,
+        tried: event.target.checkbox.checked,
+        email: this.props.auth0.user.email,
+       }
+console.log('my dish data ',mydishData);
+console.log('indexNumber : ',this.state.indexNum);
+        // let foodURL = 'http://localhost:8000/';
+        
+        // const data= await axios.put(`${foodURL}food/updateMydishes?${this.state.indexNum}`,mydishData)
+        // this.setState({
+        //     myDishes: data.data,
+        // })
+    };
 
-    }
+    showUpdateForm = (idx) => {
 
-    changeFeedback = (e) => {
-        e.preventDefault();
         this.setState({
-            feedBack: e.target.value
+            // show:true,
+            indexNum: idx,
+            feedBack: this.state.myDishes[idx].feedBack,
+            tried: this.state.myDishes[idx].tried,
+
+
+
+
         })
     }
 
+    
+
+
+    changeFeedback = (e) => {
+        this.setState({
+            feedBack: e.target.value
+
+        })
+    }
+    changeCheckbox = (e) => {
+        this.setState({
+            tried: e.target.value
+
+        })
+    }
+    
+
+
 
     render() {
+
         console.log('im in my dishes');
         console.log(this.state.myDishes);
         return (
@@ -89,9 +126,12 @@ export class Mydishes extends Component {
                                     <Card.Title>  <p>{item.title}</p></Card.Title>
                                     <Card.Img variant="top" src={item.image} />
 
-                                    <Form onSubmit={(event) => { this.addFeedback(event) }}>
+                                    <Form onSubmit={(event) => { this.updateMydishes(event) }}>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="text" placeholder="enter feedback" onChange={() => this.addFeedback(index)} />
+                                            <Form.Control type="text" placeholder="enter feedback" name='feedBack' onChange={(e) => this.changeFeedback(e)} value ={this.state.feedBack} />
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                            <Form.Control type="checkbox" placeholder="enter feedback" name='checkbox'onChange={(e) => this.changeCheckbox(e)} value={this.state.tried} />
                                         </Form.Group>
                                         <Button variant="primary" type="submit">
                                             Submit
