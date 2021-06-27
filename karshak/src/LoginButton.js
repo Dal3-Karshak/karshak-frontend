@@ -8,8 +8,8 @@ function LoginButton() {
 
   return !isAuthenticated && (
     <>
-      {/* <button className='btn btn-ghost' onClick={loginWithRedirect}>Get Started</button> */}
-      <a className="btn btn-ghost" onClick={loginWithRedirect}>Get Started</a>
+      <button className='btn btn-ghost' onClick={loginWithRedirect}>Get Started</button>
+      {/* <a className="btn btn-ghost" onClick={loginWithRedirect}>Get Started</a> */}
     </>
 
   );
