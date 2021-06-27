@@ -3,6 +3,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import SearchCards from './SearchCards';
 import Header from './Header';
+import LogoutButton from './LogoutButton';
+import { withAuth0 } from '@auth0/auth0-react';
+
 import './Search.css';
 
 import axios from 'axios';
@@ -33,12 +36,14 @@ export class Search extends Component {
             searchCards:newData.data.results,
             showCards:true,
         })
-        console.log(this.state.searchCards);
+        // console.log(this.state.searchCards);
     }
 
 
 
+   
     render() {
+
         return (
             <div>
                 <Header/>
@@ -90,10 +95,9 @@ export class Search extends Component {
                 </div>
                 {this.state.showCards&& <SearchCards searchCards={this.state.searchCards} myDishes={this.props.myDishes}/> }
                 {/* <SearchCards searchCards={this.state.searchCards}  /> */}
-
             </div>
         )
     }
 }
 
-export default Search
+export default withAuth0(Search);
