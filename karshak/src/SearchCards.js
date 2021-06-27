@@ -20,7 +20,7 @@ export class SearchCards extends Component {
         const dishData = {
             title:title,
             image:image,
-            idNum:idNum,
+            id:idNum,
             feedback:"",
             tried:false,
         }
