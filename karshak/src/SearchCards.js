@@ -9,7 +9,6 @@ import { withAuth0 } from '@auth0/auth0-react';
 export class SearchCards extends Component {
 
     addToMyDishes = async (index) => {
-        console.log(index);
         const { user, isAuthenticated } = this.props.auth0;
         const email = user.email
         // const email = this.props.auth0.user.email;
@@ -18,10 +17,18 @@ export class SearchCards extends Component {
         const image = this.props.searchCards[index].image;
         const idNum = this.props.searchCards[index].id;
         console.log(title, image, idNum, email);
+        const dishData = {
+            title:title,
+            image:image,
+            idNum:idNum,
+            feedback:"",
+            tried:false,
+        }
+        console.log(dishData);
         let foodURL = 'http://localhost:8000/';
-        let url = `${foodURL}food/addinfo/?title=${title}&image=${image}&idNum=${idNum}&email=${email}`
-        const addDish = await axios.post(url);
-        this.props.myDishes = addDish;
+        let url = `${foodURL}food/addFoodDishes?email=${email}`;
+        const addDish = await axios.post(url , dishData);
+        console.log(addDish.data)
 
     }
     render() {

@@ -29,7 +29,7 @@ export class Mydishes extends Component {
             const email = user.email;
             console.log(email);
             let foodURL = 'http://localhost:8000/';
-            let data = await axios.get(`${foodURL}food/handleUsers?email=saadoundhirat93@gmail.com`);
+            let data = await axios.get(`${foodURL}food/handleUsers?email=${email}`);
             console.log(data.data.food);
             this.setState({
                 myDishes: data.data.food,
@@ -45,10 +45,12 @@ export class Mydishes extends Component {
         const email = user.email;
         const idx = index;
         let foodURL = 'http://localhost:8000/';
-        let data = await axios.get(`${foodURL}food/handleUsers?email=saadoundhirat93@gmail.com&index=${idx}`);
+       // http://localhost:8000/food/deleteFoodDishes?email=saadoundhirat93@gmail.com&index=4
+        let data = await axios.delete(`${foodURL}food/deleteFoodDishes?email=saadoundhirat93@gmail.com&index=${idx}`);
+
+        console.log("response",data.data)
         this.setState({
             myDishes: data.data.food,
-            stop: false,
         })
     }
 
