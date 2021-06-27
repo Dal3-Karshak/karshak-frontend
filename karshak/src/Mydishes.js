@@ -18,8 +18,11 @@ export class Mydishes extends Component {
             myDishes: [],
             stop: true,
             feedBack: '',
-            tried:false,
+            tried: false,
             indexNum: 0,
+            title: '',
+            image: '',
+            id: '',
         }
     }
 
@@ -46,26 +49,30 @@ export class Mydishes extends Component {
         const email = user.email;
         const idx = index;
         let foodURL = 'http://localhost:8000/';
-       // http://localhost:8000/food/deleteFoodDishes?email=saadoundhirat93@gmail.com&index=4
+        // http://localhost:8000/food/deleteFoodDishes?email=saadoundhirat93@gmail.com&index=4
         let data = await axios.delete(`${foodURL}food/deleteFoodDishes?email=${email}&index=${idx}`);
 
-        console.log("response",data.data)
+        console.log("response", data.data)
         this.setState({
             myDishes: data.data.food,
         })
     }
 
     updateMydishes = async (event) => {
-       event.preventDefault();
-       const mydishData = {
-        feedBack: event.target.feedBack.value,
-        tried: event.target.checkbox.checked,
-        email: this.props.auth0.user.email,
-       }
-console.log('my dish data ',mydishData);
-console.log('indexNumber : ',this.state.indexNum);
+        event.preventDefault();
+        const mydishData = {
+            feedback: event.target.feedBack.value,
+            tried: event.target.checkbox.checked,
+            email: this.props.auth0.user.email,
+            image: this.state.image,
+            id: this.state.id,
+            title:this.state.title,
+
+        }
+        console.log('my dish data ', mydishData);
+        console.log('indexNumber : ', this.state.indexNum);
         // let foodURL = 'http://localhost:8000/';
-        
+
         // const data= await axios.put(`${foodURL}food/updateMydishes?${this.state.indexNum}`,mydishData)
         // this.setState({
         //     myDishes: data.data,
@@ -77,8 +84,9 @@ console.log('indexNumber : ',this.state.indexNum);
         this.setState({
             // show:true,
             indexNum: idx,
-            feedBack: this.state.myDishes[idx].feedBack,
-            tried: this.state.myDishes[idx].tried,
+            title: this.state.myDishes[idx].title,
+            image: this.state.myDishes[idx].image,
+            id: this.state.myDishes[idx].id,
 
 
 
@@ -86,7 +94,7 @@ console.log('indexNumber : ',this.state.indexNum);
         })
     }
 
-    
+
 
 
     changeFeedback = (e) => {
@@ -101,7 +109,7 @@ console.log('indexNumber : ',this.state.indexNum);
 
         })
     }
-    
+
 
 
 
@@ -128,12 +136,12 @@ console.log('indexNumber : ',this.state.indexNum);
 
                                     <Form onSubmit={(event) => { this.updateMydishes(event) }}>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="text" placeholder="enter feedback" name='feedBack' onChange={(e) => this.changeFeedback(e)} value ={this.state.feedBack} />
+                                            <Form.Control type="text" placeholder="enter feedback" name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.feedBack} />
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="checkbox" placeholder="enter feedback" name='checkbox'onChange={(e) => this.changeCheckbox(e)} value={this.state.tried} />
+                                            <Form.Control type="checkbox" placeholder="enter feedback" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.tried} />
                                         </Form.Group>
-                                        <Button variant="primary" type="submit">
+                                        <Button variant="primary" type="submit" onClick={() => this.showUpdateForm(index)}>
                                             Submit
                                         </Button>
                                     </Form>
