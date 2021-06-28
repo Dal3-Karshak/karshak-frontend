@@ -1,15 +1,14 @@
-
-import React, { Component } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import Navbar from 'react-bootstrap/Navbar';
-
-
+import React, { Component } from 'react';
+import './style/Footer.css'
 
 export class Footer extends Component {
     render() {
         return (
             <div>
-                <p>© 2021 A Perfect Plate. All rights reserved. Site by Karshak.</p>
+                <footer>
+                    <p>All rights are reserved.Copyright &copy; 2021 by Dalaa-Karshak Team. </p>
+                </footer>
+                
             </div>
         )
     }

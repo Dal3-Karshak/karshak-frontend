@@ -1,0 +1,56 @@
+.searchcardgroup{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+.searchcard{
+    width: 25rem ;
+    margin: auto;
+    height: 29rem !important ;
+    background-color:rgba(0, 0, 0, 0.2) !important; 
+    color: white;
+    text-align: center;
+}
+.searchcardtitle{
+    height: 3rem;
+}
+.searchCardsButton{
+margin-top: 1rem;
+background-color: rgba(0, 0, 0, 0.1);
+border: 3px solid #E67E22;
+transition: .3s background-color;
+}
+.searchCardsButton:hover{
+    background-color: #E67E22;
+border: 3px solid #E67E22;
+}
+.searchCardsButton:active{
+    background-color: #E67E22;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 3px solid #E67E22;
+    border-radius: 0;
+    outline: none !important; 
+}
+.searchCardsButton:focus{
+    background-color: #E67E22;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 3px solid #E67E22;
+    border-radius: 0;
+    outline: none !important; 
+}
+.searchModal{
+    text-align: center;
+}
+.cardsearchtic{
+    width: 20rem;
+    height: 20rem;
+    margin: auto;
+}
+.cardmodaltext{
+    color: black;
+    font-size: 2rem;
+    text-align: center;
+}
+.modalsearchbutton{
+margin: auto;}

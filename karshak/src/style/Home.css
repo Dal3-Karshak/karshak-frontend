@@ -1,4 +1,4 @@
-.heroImage{
+/* .heroImage{
 background-image: url('../assest/images/heroimghompage.jpg');
 background-size: cover;
 background-repeat:no-repeat;
@@ -10,5 +10,77 @@ header{
     background-repeat:no-repeat;
     background-position:center;
     height: 100vh;
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.heroimage{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('../assest/images/hero78.jpg');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height: 80vh;
+    background-attachment: fixed;
+    /* z-index: 0; */
 }
+
+.hero-text-box{
+    position: relative;
+    width: 1100px;
+    left: 260px;
+    bottom: 340px;
+   
+}
+.hero-text-box h1{
+    text-transform:uppercase;
+    color: white;
+    font-weight: 300;
+    font-size:250%;
+    font-family: 'Lato', sans-serif;
+}
+
+/********************Hero Image Button**********************/
+
+.btn{
+    display: inline-block;
+    padding: 7px 30px;
+    border: 1px solid;
+    font-weight: 400;
+    font-size: 120%;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s , border 0.2s ,color 0.2s;
+  }
+  
+  .btn-full{
+  
+    background-color: #e67e22;
+    border:1px #e67e22 solid;
+    color: #fff;
+    margin-right: 15px;
+  
+  }
+  
+  .home-btn-ghost{
+    border:1px #e67e22 solid;
+    color: #e67e22;
+  
+  }
+  
+  .btn-full:hover{
+  
+    background-color: #cf6d17;
+    border:1px #cf6d17 solid;
+    color: #fff;
+  
+  
+  }
+  
+  .home-btn-ghost:hover{
+    background-color: #cf6d17;
+    border:1px #cf6d17 solid;
+    color: #fff;
+  
+  }

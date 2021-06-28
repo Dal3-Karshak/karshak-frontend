@@ -3,6 +3,7 @@ import Home from './Home';
 import Landing from './Landing';
 import Search from './Search'
 import Mydishes from './Mydishes';
+import AboutUs from './AboutUs';
 import {
   BrowserRouter as Router,
   Switch,
@@ -45,11 +46,17 @@ export class App extends Component {
             <Route exact path="/">
               {this.props.auth0.isAuthenticated ? <Home reciveData={this.reciveData} /> : <Landing />}
             </Route>
+            <Route exact path="/home">
+              <Home/>
+            </Route>
             <Route  path="/search">
               <Search myDishes={this.state.myDishes} />
             </Route>
             <Route path="/mydishes">
                {this.props.auth0.isAuthenticated &&<Mydishes />} 
+            </Route>
+            <Route path="/aboutus">
+               {this.props.auth0.isAuthenticated &&<AboutUs />} 
             </Route>
             <Route  path="/logout">
             </Route>
