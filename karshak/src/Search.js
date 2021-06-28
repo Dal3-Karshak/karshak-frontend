@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import SearchCards from './SearchCards';
 import Header from './Header';
-import LogoutButton from './LogoutButton';
 import { withAuth0 } from '@auth0/auth0-react';
 
 import './Search.css';
@@ -18,11 +17,31 @@ export class Search extends Component {
         this.state={
         searchCards:[],
         showCards:false
+        
         }
             
     }
 
+    addshow= ()=>{
+        this.state.searchCards.map((item)=>{
+            item.show=false;
+        })
+        // console.log(this.state.searchCards);
+        this.setState({
+            showCards:true,
+        })
+    }
+    changeshow= (index)=>{
+        this.state.searchCards.map((item,idx)=>{
+            
+            if(index===idx){
+                item.show=true;
 
+            }
+       })
+        // console.log(this.state.searchCards);
+       
+    }
 
     getFood= async(e)=>{ 
         e.preventDefault();
@@ -34,9 +53,11 @@ export class Search extends Component {
         let newData=await axios.get(url);
         this.setState({
             searchCards:newData.data.results,
-            showCards:true,
+            
+            
         })
         // console.log(this.state.searchCards);
+        this.addshow();
     }
 
 
@@ -93,7 +114,10 @@ export class Search extends Component {
                     </Form>
                
                 </div>
-                {this.state.showCards&& <SearchCards searchCards={this.state.searchCards} myDishes={this.props.myDishes}/> }
+                {this.state.showCards&& <SearchCards 
+                searchCards={this.state.searchCards} 
+                myDishes={this.props.myDishes}
+                changeshow={this.changeshow}/> }
                 {/* <SearchCards searchCards={this.state.searchCards}  /> */}
             </div>
         )
