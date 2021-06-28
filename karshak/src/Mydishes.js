@@ -9,10 +9,10 @@ import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 import ListGroup from 'react-bootstrap/ListGroup';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../src/style/Mydishes.css';
 
 export class Mydishes extends Component {
-
-
     constructor(props) {
         super(props)
         this.state = {
@@ -28,11 +28,9 @@ export class Mydishes extends Component {
             show: false,
         }
     }
-
     componentDidMount = async () => {
         if (this.props.auth0.isAuthenticated) {
             const { user } = this.props.auth0;
-
             const email = user.email;
             console.log(email);
             let foodURL = 'http://localhost:8000/';
@@ -44,9 +42,6 @@ export class Mydishes extends Component {
             })
         }
     }
-
-
-
     deleteFood = async (index) => {
         const { user } = this.props.auth0;
         const email = user.email;
@@ -54,13 +49,11 @@ export class Mydishes extends Component {
         let foodURL = 'http://localhost:8000/';
         // http://localhost:8000/food/deleteFoodDishes?email=saadoundhirat93@gmail.com&index=4
         let data = await axios.delete(`${foodURL}food/deleteFoodDishes?email=${email}&index=${idx}`);
-
         console.log("response", data.data)
         this.setState({
             myDishes: data.data.food,
         })
     }
-
     updateMydishes = async (event) => {
         event.preventDefault();
         const mydishData = {
@@ -85,39 +78,25 @@ export class Mydishes extends Component {
                 console.log("Bad req")
             })
     };
-
     showUpdateForm = (idx) => {
-
         this.setState({
             // show:true,
             indexNum: idx,
             title: this.state.myDishes[idx].title,
             image: this.state.myDishes[idx].image,
             id: this.state.myDishes[idx].id,
-
-
-
-
         })
     }
-
-
-
-
     changeFeedback = (e) => {
         this.setState({
             feedBack: e.target.value
-
         })
     }
     changeCheckbox = (e) => {
         this.setState({
             tried: e.target.value
-
         })
     }
-
-
     openModel = async (idnum) => {
         const id = idnum;
         console.log(id);
@@ -127,100 +106,78 @@ export class Mydishes extends Component {
         console.log(ingr.data.ingredients);
         this.setState({
             recepe: ingr.data.ingredients,
-            show:true,
+            show: true,
         })
-        console.log('my recepe',this.state.recepe)
+        console.log('my recepe', this.state.recepe)
     }
-
-  
-
     handleClose = () => {
         this.setState({
             show: false,
         })
     }
-
     render() {
-
         console.log('im in my dishes');
         console.log(this.state.myDishes);
         return (
-            <div>
-
+            <div className='maindiv'>
                 <Header />
                 {/* <Button on onClick={this.componentDidMount}>SHOW MY CARDS</Button> */}
-                <CardGroup>
-
+                <h1 className='welcome-mydish'>Welcome {this.props.auth0.user.name}</h1>
+                {/* <p className='qoute'>" I'm not hungry. but I'm bored. therefore, I shall EAT "</p> */}
+                {this.state.myDishes.length ? (<CardGroup className='cardGroup'>
                     {this.state.myDishes.map((item, index) => {
-
-                        return (<div>
-
-                            <Card key={index}>
+                        return (<div >
+                            <Card key={index} className='card'>
                                 <Card.Body style={{ width: '25rem' }}   >
-                                    <Card.Title>  <p>{item.title}</p></Card.Title>
-                                    <Card.Img variant="top" src={item.image} onClick={() => this.openModel(item.id)} />
-
+                                    <Card.Title className='cardName'>  {item.title}</Card.Title>
+                                    <Card.Img className='cardimg' variant="top" src={item.image} onClick={() => this.openModel(item.id)} />
                                     <Form onSubmit={(event) => { this.updateMydishes(event) }}>
-                                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="text" placeholder={`notes : ${this.state.myDishes[index].feedback}`} name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Control className='notes' type="text" placeholder={`notes : ${this.state.myDishes[index].feedback}`} name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
                                         </Form.Group>
-                                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="checkbox" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.myDishes[index].tried} defaultChecked={this.state.myDishes[index].tried} />
+                                        <Form.Group controlId="formBasicEmail" className='formGroup-checkbox'>
+                                            <label className='checkbox-label'>tried it before </label>
+                                            <Form.Check className='formcheck'  type="checkbox" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.myDishes[index].tried} defaultChecked={this.state.myDishes[index].tried} />
                                         </Form.Group>
-                                        <Button variant="primary" type="submit" onClick={() => this.showUpdateForm(index)}>
-                                            Submit
-                                        </Button>
+                                        <div className='buttonsmydishes'>
+                                            <Button className='submit' variant="primary" type="submit" onClick={() => this.showUpdateForm(index)}>
+                                                Submit
+                                            </Button>
+                                            <Button className='delete' variant="primary" onClick={() => this.deleteFood(index)}>
+                                                delete
+                                            </Button>
+                                        </div>
                                     </Form>
-                                    <Button variant="primary" onClick={() => this.deleteFood(index)}>
-                                        delete
-                                    </Button>
-
                                 </Card.Body>
-
                             </Card>
-
-
                         </div>)
-
                     })}
-
-
-
-                </CardGroup>
+                </CardGroup>) : <p className='warning'>Please add some dishes first !!!<br></br>
+                    go to <a href="./search">Search</a> </p>}
                 <Footer />
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>ingrediants</Modal.Title>
+                <Modal show={this.state.show} onHide={this.handleClose} >
+                    <Modal.Header closeButton className='ingredents' style={{border:'none'}}>
+                        <Modal.Title>Ingrediants:</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
-
-                        <ListGroup>
-
-                            {this.state.recepe.map((item,idx)=>{
-                                return(
+                    <Modal.Body className='ingredents'style={{border:'none'}}>
+                        <ListGroup className='ingredents'>
+                            {this.state.recepe.map((item, idx) => {
+                                return (
                                     <div>
-                                    <ListGroup.Item>{item.name}</ListGroup.Item>
-
+                                        <ListGroup.Item className='ingredents'>{item.name}</ListGroup.Item>
                                     </div>
                                 )
-
                             })}
-                           
                         </ListGroup>
-
-
-
                     </Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Footer className='ingredents'style={{border:'150px ' }}>
                         <Button variant="secondary" onClick={this.handleClose}>
                             Close
                         </Button>
-                      
                     </Modal.Footer>
                 </Modal>
             </div>
         )
     }
 }
-
 export default withAuth0(Mydishes)
