@@ -5,7 +5,6 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
 import Footer from './Footer';
-import axios from 'axios';
 
 
 export class Home extends Component {
@@ -17,7 +16,6 @@ export class Home extends Component {
 
 
     render() {
-        const user=this.props.auth0
         return (
             <div>
               <Header/>

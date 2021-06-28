@@ -7,7 +7,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-
+import Modal from 'react-bootstrap/Modal';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export class Mydishes extends Component {
 
@@ -23,6 +24,8 @@ export class Mydishes extends Component {
             title: '',
             image: '',
             id: '',
+            recepe: [],
+            show: false,
         }
     }
 
@@ -66,21 +69,21 @@ export class Mydishes extends Component {
             email: this.props.auth0.user.email,
             image: this.state.image,
             id: this.state.id,
-            title:this.state.title,
-            index:this.state.indexNum,
+            title: this.state.title,
+            index: this.state.indexNum,
         }
         console.log('my dish data ', mydishData);
         let foodURL = 'http://localhost:8000/';
-        let URL= `${foodURL}food/updateFoodDishes`
-        axios.put(URL , mydishData)
-        .then(result=>{
-            this.setState({
-                myDishes:result.data.food
+        let URL = `${foodURL}food/updateFoodDishes`
+        axios.put(URL, mydishData)
+            .then(result => {
+                this.setState({
+                    myDishes: result.data.food
+                })
             })
-        })
-        .catch(err =>{
-            console.log("Bad req")
-        })
+            .catch(err => {
+                console.log("Bad req")
+            })
     };
 
     showUpdateForm = (idx) => {
@@ -115,7 +118,27 @@ export class Mydishes extends Component {
     }
 
 
+    openModel = async (idnum) => {
+        const id = idnum;
+        console.log(id);
+        let foodURL = 'http://localhost:8000/';
+        let URL = `${foodURL}food/getFoodInfo?id=${id}`;
+        const ingr = await axios.get(URL);
+        console.log(ingr.data.ingredients);
+        this.setState({
+            recepe: ingr.data.ingredients,
+            show:true,
+        })
+        console.log('my recepe',this.state.recepe)
+    }
 
+  
+
+    handleClose = () => {
+        this.setState({
+            show: false,
+        })
+    }
 
     render() {
 
@@ -135,14 +158,14 @@ export class Mydishes extends Component {
                             <Card key={index}>
                                 <Card.Body style={{ width: '25rem' }}   >
                                     <Card.Title>  <p>{item.title}</p></Card.Title>
-                                    <Card.Img variant="top" src={item.image} />
+                                    <Card.Img variant="top" src={item.image} onClick={() => this.openModel(item.id)} />
 
                                     <Form onSubmit={(event) => { this.updateMydishes(event) }}>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="text" placeholder={`Your Feed Back : ${this.state.myDishes[index].feedback}`} name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
+                                            <Form.Control type="text" placeholder={`notes : ${this.state.myDishes[index].feedback}`} name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                                            <Form.Control type="checkbox" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.myDishes[index].tried}  defaultChecked={this.state.myDishes[index].tried}/>
+                                            <Form.Control type="checkbox" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.myDishes[index].tried} defaultChecked={this.state.myDishes[index].tried} />
                                         </Form.Group>
                                         <Button variant="primary" type="submit" onClick={() => this.showUpdateForm(index)}>
                                             Submit
@@ -165,6 +188,36 @@ export class Mydishes extends Component {
 
                 </CardGroup>
                 <Footer />
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>ingrediants</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+
+                        <ListGroup>
+
+                            {this.state.recepe.map((item,idx)=>{
+                                return(
+                                    <div>
+                                    <ListGroup.Item>{item.name}</ListGroup.Item>
+
+                                    </div>
+                                )
+
+                            })}
+                           
+                        </ListGroup>
+
+
+
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                            Close
+                        </Button>
+                      
+                    </Modal.Footer>
+                </Modal>
             </div>
         )
     }

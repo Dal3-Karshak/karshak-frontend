@@ -3,7 +3,6 @@ import Home from './Home';
 import Landing from './Landing';
 import Search from './Search'
 import Mydishes from './Mydishes';
-import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
