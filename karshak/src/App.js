@@ -49,16 +49,16 @@ export class App extends Component {
             <Route exact path="/home">
               <Home/>
             </Route>
-            <Route  path="/search">
+            <Route  exact path="/search">
               <Search myDishes={this.state.myDishes} />
             </Route>
-            <Route path="/mydishes">
+            <Route exact path="/mydishes">
                {this.props.auth0.isAuthenticated &&<Mydishes />} 
             </Route>
-            <Route path="/aboutus">
+            <Route exact path="/aboutus">
                {this.props.auth0.isAuthenticated &&<AboutUs />} 
             </Route>
-            <Route  path="/logout">
+            <Route  exact path="/logout">
             </Route>
 
           </Switch>

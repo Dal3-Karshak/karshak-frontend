@@ -67,7 +67,7 @@ export class SearchCards extends Component {
                     <Modal.Body className='searchModal'>
                         {/* <Modal.Img src={tic} alt='okay' /> */}
                         <img className='cardsearchtic' src={tic} alt='okay' />
-                        <p className='cardmodaltext' >dish added to your favorites dishes !!!</p>
+                        <p className='cardmodaltext' >Dish added to your favorites dishes !</p>
                     </Modal.Body>
                     <Modal.Footer className='modalsearchbutton'>
                         <Button className='modalsearchbutton' variant="secondary" onClick={this.handleClose}>
