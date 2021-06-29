@@ -133,11 +133,11 @@ export class Mydishes extends Component {
                                     <Card.Img className='cardimg' variant="top" src={item.image} onClick={() => this.openModel(item.id)} />
                                     <Form onSubmit={(event) => { this.updateMydishes(event) }}>
                                         <Form.Group controlId="formBasicEmail">
-                                            <Form.Control className='notes' type="text" placeholder={`notes : ${this.state.myDishes[index].feedback}`} name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
+                                            <Form.Control className='notes' type="text"  name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
                                         </Form.Group>
                                         <Form.Group controlId="formBasicEmail" className='formGroup-checkbox'>
                                             <label className='checkbox-label'>tried it before </label>
-                                            <Form.Check className='formcheck'  type="checkbox" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.myDishes[index].tried} defaultChecked={this.state.myDishes[index].tried} />
+                                            <Form.Check className='formcheck' type="checkbox" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.myDishes[index].tried} defaultChecked={this.state.myDishes[index].tried} />
                                         </Form.Group>
                                         <div className='buttonsmydishes'>
                                             <Button className='submit' variant="primary" type="submit" onClick={() => this.showUpdateForm(index)}>
@@ -146,8 +146,11 @@ export class Mydishes extends Component {
                                             <Button className='delete' variant="primary" onClick={() => this.deleteFood(index)}>
                                                 delete
                                             </Button>
+                                        
                                         </div>
                                     </Form>
+                                    {item.feedback&& <Card.Text className='feedbackk'>📝{item.feedback}</Card.Text> }
+                                    
                                 </Card.Body>
                             </Card>
                         </div>)
@@ -156,10 +159,10 @@ export class Mydishes extends Component {
                     go to <a href="./search">Search</a> </p>}
                 <Footer />
                 <Modal show={this.state.show} onHide={this.handleClose} >
-                    <Modal.Header closeButton className='ingredents' style={{border:'none'}}>
+                    <Modal.Header closeButton className='ingredents' style={{ border: 'none' }}>
                         <Modal.Title>Ingrediants:</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className='ingredents'style={{border:'none'}}>
+                    <Modal.Body className='ingredents' style={{ border: 'none' }}>
                         <ListGroup className='ingredents'>
                             {this.state.recepe.map((item, idx) => {
                                 return (
@@ -170,7 +173,7 @@ export class Mydishes extends Component {
                             })}
                         </ListGroup>
                     </Modal.Body>
-                    <Modal.Footer className='ingredents'style={{border:'150px ' }}>
+                    <Modal.Footer className='ingredents' style={{ border: '150px ' }}>
                         <Button className='closebutton-ingModal' variant="secondary" onClick={this.handleClose}>
                             Close
                         </Button>

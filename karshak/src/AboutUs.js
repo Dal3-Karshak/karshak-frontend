@@ -76,10 +76,11 @@ export class AboutUs extends Component {
 
                 <section className='aboutUs-paragraph '>
                 <Jumbotron className='aboutUsPara'>
-                    <h1 style={{color:'#e67e22'}}>About US</h1>
-                    <p>DalaaKarshak is website for people who are in enthusiast with food.</p>
-                    <p>In this website you can search between millions of dishes worldwide.</p>
-                    <p>you can search by dishs's name,also you can search by cuisine type. </p>
+                    <h1 className='abouth11' style={{color:'#e67e22'}}>About US</h1>
+                    <p className='abouttextt'>Welcome to DalaaKarshak,a website for people who like to eat, here is your peredice,<br></br>
+                    a place whare you will be happy more then anywhere alse, DalaaKarshak is website for<br></br>
+                    people who are in  enthusiast with food. In this website you can search between millions  <br></br>
+                    of dishes worldwide. you can search by dishs's name,also you can search by cuisine type. </p>
                     
                 </Jumbotron>
            

@@ -17,7 +17,7 @@ padding-bottom: 2rem;}
 .card{
     width: 25rem ;
     margin: auto;
-height: 35rem;
+height: 38rem;
     background-color:rgba(0, 0, 0, 0.3); 
 }
 .cardimg{
@@ -72,6 +72,30 @@ height: 35rem;
     outline: none;
 
 }
+.delete:active{
+    background-color: #E67E22 !important;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid #E67E22 !important;
+    border-radius: 200px;
+}
+.delete:focus{
+    background-color: #E67E22;
+    
+    border: 2px solid #E67E22 !important;
+    border-radius: 200px;
+}
+.submit:active{
+    background-color: #E67E22 !important;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid #E67E22 !important;
+    border-radius: 200px;
+}
+.submit:focus{
+    background-color: #E67E22;
+    
+    border: 2px solid #E67E22 !important;
+    border-radius: 200px;
+}
 .buttonsmydishes{
     text-align: center;
 }
@@ -106,4 +130,10 @@ input[type=checkbox]{
     color: #fff;
     background-color: #E67E22;
     border-color: #E67E22;
+}
+.feedbackk{
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
