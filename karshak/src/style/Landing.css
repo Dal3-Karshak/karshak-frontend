@@ -39,8 +39,8 @@
     border: 1px solid;
     font-weight: 400;
     text-decoration: none;
-    /* border-radius: 200px; */
-    transition: background-color 1.6s , border 1.6s ,color 1.6s;
+    border-radius: 200px;
+    transition: background-color 0.5s , border 0.5s ,color 0.5s;
     font-size: 120%;
     }
     

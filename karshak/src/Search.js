@@ -37,7 +37,7 @@ export class Search extends Component {
         const query=e.target.query.value;
         const cuisine=e.target.cusion.value;
         console.log(cuisine);
-        let foodURL='http://localhost:8000/';
+        let foodURL= process.env.REACT_APP_SERVER_URL || 'http://localhost:8000/';
         let url =`${foodURL}food/getfood?foodName=${query}&cuisine=${cuisine}`
         let newData=await axios.get(url);
         this.setState({
@@ -94,7 +94,7 @@ export class Search extends Component {
                 {this.state.searchCards.length ? ( <SearchCards 
                 searchCards={this.state.searchCards} 
                 myDishes={this.props.myDishes}
-                changeshow={this.changeshow}/> ) : <p className='orderSearch'>search between milions of dishes <br></br>
+                changeshow={this.changeshow}/> ) : <p className='orderSearch'>Search between milions of dishes <br></br>
                 you can search by name or by cuisines!!!</p>}
                 {/* <SearchCards searchCards={this.state.searchCards}  /> */}
                 <Footer/>

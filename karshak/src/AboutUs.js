@@ -8,6 +8,7 @@ import ali from './assest/profile/alipic.jpg'
 import saadoun from './assest/profile/saddoun pic.png'
 import { GoMarkGithub } from "react-icons/go";
 import { FaLinkedinIn } from "react-icons/fa";
+import Jumbotron from 'react-bootstrap/Jumbotron'
 
 export class AboutUs extends Component {
     render() {
@@ -71,6 +72,17 @@ export class AboutUs extends Component {
 
                     </article>
 
+                </section>
+
+                <section className='aboutUs-paragraph '>
+                <Jumbotron className='aboutUsPara'>
+                    <h1 style={{color:'#e67e22'}}>About US</h1>
+                    <p>DalaaKarshak is website for people who are in enthusiast with food.</p>
+                    <p>In this website you can search between millions of dishes worldwide.</p>
+                    <p>you can search by dishs's name,also you can search by cuisine type. </p>
+                    
+                </Jumbotron>
+           
                 </section>
 
                 <Footer/>

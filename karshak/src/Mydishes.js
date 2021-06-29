@@ -33,7 +33,7 @@ export class Mydishes extends Component {
             const { user } = this.props.auth0;
             const email = user.email;
             console.log(email);
-            let foodURL = 'http://localhost:8000/';
+            let foodURL = process.env.REACT_APP_SERVER_URL || 'http://localhost:8000/';
             let data = await axios.get(`${foodURL}food/handleUsers?email=${email}`);
             console.log(data.data.food);
             this.setState({
@@ -46,7 +46,7 @@ export class Mydishes extends Component {
         const { user } = this.props.auth0;
         const email = user.email;
         const idx = index;
-        let foodURL = 'http://localhost:8000/';
+        let foodURL = process.env.REACT_APP_SERVER_URL || 'http://localhost:8000/';
         // http://localhost:8000/food/deleteFoodDishes?email=saadoundhirat93@gmail.com&index=4
         let data = await axios.delete(`${foodURL}food/deleteFoodDishes?email=${email}&index=${idx}`);
         console.log("response", data.data)
@@ -66,7 +66,7 @@ export class Mydishes extends Component {
             index: this.state.indexNum,
         }
         console.log('my dish data ', mydishData);
-        let foodURL = 'http://localhost:8000/';
+        let foodURL = process.env.REACT_APP_SERVER_URL || 'http://localhost:8000/';
         let URL = `${foodURL}food/updateFoodDishes`
         axios.put(URL, mydishData)
             .then(result => {
@@ -100,7 +100,7 @@ export class Mydishes extends Component {
     openModel = async (idnum) => {
         const id = idnum;
         console.log(id);
-        let foodURL = 'http://localhost:8000/';
+        let foodURL = process.env.REACT_APP_SERVER_URL || 'http://localhost:8000/';
         let URL = `${foodURL}food/getFoodInfo?id=${id}`;
         const ingr = await axios.get(URL);
         console.log(ingr.data.ingredients);
@@ -171,7 +171,7 @@ export class Mydishes extends Component {
                         </ListGroup>
                     </Modal.Body>
                     <Modal.Footer className='ingredents'style={{border:'150px ' }}>
-                        <Button variant="secondary" onClick={this.handleClose}>
+                        <Button className='closebutton-ingModal' variant="secondary" onClick={this.handleClose}>
                             Close
                         </Button>
                     </Modal.Footer>

@@ -28,20 +28,21 @@ padding-bottom: 2rem;
     width: 7rem;
     height: 3rem;
     text-align:center;
+    border-radius: 15px;
 }
 .formsearchbut:hover{
     background-color: #E67E22;
     border: #E67E22 1px solid;
+    border-radius: 15px;
 }
 .formsearchbut:active{
-    background-color: #E67E22;
+    background-color: #E67E22 !important;
     border: #E67E22 1px solid !important;
-    outline: #E67E22 1px solid !important ;
-    border-radius: 0;
+    border-radius: 15px;
 }
 .formsearchbut:focus{
-    background-color: #E67E22;
+    background-color: #E67E22 !important;
     border: #E67E22 1px solid !important;
-    outline: #E67E22 1px solid !important ;
-    border-radius: 0;
+    border-radius: 15px;
+    box-shadow: none !important;
 }

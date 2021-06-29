@@ -1,9 +1,18 @@
+button:focus{
+    outline: none !important; 
+
+}
+
+.btn-primary.focus, .btn-primary:focus{
+    box-shadow: none !important;
+}
 .searchcardgroup{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
     padding-bottom: 2rem;
 }
+
 .searchcard{
     width: 25rem ;
     margin: auto;
@@ -17,34 +26,32 @@
 }
 .searchCardsButton{
 margin-top: 1rem;
-background-color: rgba(0, 0, 0, 0.1);
-border: 3px solid #E67E22;
+background-color: #E67E22;
+border: 2px solid #E67E22;
 transition: .3s background-color;
 }
 .searchCardsButton:hover{
-    background-color: #E67E22;
-border: 3px solid #E67E22;
+    background-color: #cf6d17;
+    border:2px #cf6d17 solid;
 }
 .searchCardsButton:active{
-    background-color: #E67E22;
+    background-color: #E67E22 !important;
     background-color: rgba(0, 0, 0, 0.1);
-    border: 3px solid #E67E22;
-    border-radius: 0;
-    outline: none !important; 
+    border: 2px solid #E67E22 !important;
+    border-radius: 200px;
 }
 .searchCardsButton:focus{
     background-color: #E67E22;
     background-color: rgba(0, 0, 0, 0.1);
-    border: 3px solid #E67E22;
-    border-radius: 0;
-    outline: none !important; 
+    border: 2px solid #E67E22 !important;
+    border-radius: 200px;
 }
 .searchModal{
     text-align: center;
 }
 .cardsearchtic{
-    width: 20rem;
-    height: 20rem;
+    width: 5rem;
+    height: 5rem;
     margin: auto;
 }
 .cardmodaltext{
@@ -53,4 +60,30 @@ border: 3px solid #E67E22;
     text-align: center;
 }
 .modalsearchbutton{
-margin: auto;}
+margin: auto;
+background-color: #e67e22 !important;
+border:1px #e67e22 solid !important;
+border-radius: 100px;
+padding: 0px 8px;
+margin-bottom: 6px;
+}
+
+
+.modalsearchbutton:active{
+    background-color: #E67E22 !important;
+    border: #E67E22 1px solid !important;
+    border-radius: 100px;
+}
+.modalsearchbutton:focus{
+    background-color: #E67E22 !important;
+    border: #E67E22 1px solid !important;
+    border-radius: 100px;
+    box-shadow: none !important;
+}
+
+/* .btn-primary:not(:disabled):not(.disabled):active */
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: #E67E22;
+    border-color: #E67E22;
+}
