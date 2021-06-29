@@ -1,0 +1,117 @@
+.aboutUs-image{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url('../assest/images/aboutUs.jpg');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height: 80vh;
+    background-attachment: fixed;
+}
+
+
+.aboutUs-page{
+background-color: #f7f6f3;
+}
+
+.aboutUsPara{
+  background-color: #f7f6f3;
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  font-size: 110%;
+
+}
+
+.aboutUs-overlay{
+    margin-top: 60px;
+    font-size: 120%;
+}
+
+.aboutUs-overlay h1:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-left: 200px;
+}
+
+
+
+.team-member {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width: 1100px;
+    margin: -100px auto 0;
+    z-index: 14;
+    position: relative;
+    padding: 0 0 40px 0;
+
+  }
+  
+  .team-member article {
+    background: #fff;
+    padding-bottom: 40px;
+    color: #222;
+    flex: 0 0 calc(25% - 40px);
+    border-radius: 5px 5px 0 0 ;
+    text-align: center;
+    transition: all 750ms;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    
+  
+  }
+  
+  .team-member article:hover {
+      filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.3));
+  }
+  
+  .team-member article:hover img {
+    filter: none;
+  }
+  
+  .team-member article img {
+    object-fit: cover;
+    border-radius: 5px 5px 0 0 ;
+    transition: all 350ms;
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  .team-member article h3 {
+    margin: 30px 0 10px;
+    font-weight: 600;
+    transition: all 350ms;
+  
+  }
+  
+  .team-member article p {
+    margin: 0 0 20px 0;
+    font-weight: 400;
+    font-size: 110%;
+
+  }
+  
+  
+  .team-member article i {
+    color: #222;
+    transition: all 350ms;
+  }
+  
+  .team-member article a:hover .githup {
+    color: #9b9999;
+  }
+  .team-member article a:hover .linkedIn {
+    color: rgb(53, 53, 179);
+  }
+  
+  .team-member article:hover h3 {
+    color: #e67e22;
+  }
+

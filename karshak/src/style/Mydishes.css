@@ -1,0 +1,109 @@
+.maindiv{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('../assest/images/three.jpg');
+}
+.welcome-mydish{
+    margin: 5rem 2rem;
+    color: white;
+}
+.qoute{
+    font-size: 2rem;
+    margin: 5rem 2rem;
+}
+.cardGroup{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+padding-bottom: 2rem;}
+.card{
+    width: 25rem ;
+    margin: auto;
+height: 35rem;
+    background-color:rgba(0, 0, 0, 0.3); 
+}
+.cardimg{
+    overflow: hidden;
+    border: 5px solid #E67E22;
+}
+.cardName{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color:white;
+    height: 4rem;
+}
+.warning{
+    text-align: center;
+    font-size: 4rem;
+    margin: 5rem 0rem;
+    color: white;
+}
+.notes{
+    margin: 1rem 0rem;
+    color: black;
+}
+.submit{
+    background-color: #E67E22;
+    text-align: center;
+    transition: 1s background-color;
+    transition: 1s border-color;
+    margin: 0rem 1rem;
+    border-color: #E67E22;
+    outline: none;
+}
+.delete{
+    background-color: #E67E22;
+    text-align: center;
+    transition: 1s background-color ;
+    transition: 1s border-color;
+    margin: 0rem 1rem;
+    border-color: #E67E22;
+    outline: none;
+
+}
+.submit:hover{
+    background-color: #cf6d17;
+    border-color: #cf6d17;
+    outline: none;
+
+}
+.delete:hover{
+    background-color: #cf6d17;
+    border-color: #cf6d17;
+    outline: none;
+
+}
+.buttonsmydishes{
+    text-align: center;
+}
+.checkbox-label{
+   font-size: 1.5rem;
+   color: white;
+   /* text-align: center; */
+   justify-self: center;
+}
+input[type=checkbox]{
+    width: 1.3rem;
+    height: 1.9rem;
+}
+
+.formGroup-checkbox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.closebutton-ingModal{
+    background-color: #E67E22;
+    border: #E67E22;
+
+}
+.closebutton-ingModal:hover{
+    background-color: #cf6d17;
+    border: #cf6d17;
+
+}
+
+.btn-primary:not(:disabled):not(.disabled):active{
+    color: #fff;
+    background-color: #E67E22;
+    border-color: #E67E22;
+}

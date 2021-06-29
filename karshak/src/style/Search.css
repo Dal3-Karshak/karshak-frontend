@@ -1,0 +1,48 @@
+.mainsearch{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('../assest/images/three.jpg');
+}
+.formsSearch{
+text-align: center;
+padding-bottom: 2rem;
+}
+.searchForm{
+    width: 30rem;
+    margin: auto;
+    padding: 1rem;
+    border: solid 3px #E67E22;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5rem;
+}
+.orderSearch{
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+.formsearchbut{
+    background-color: rgba(0, 0, 0, 0.1);
+    border: #E67E22 1px solid;
+    transition: .3s background-color;
+    font-size: 1.1rem;
+    width: 7rem;
+    height: 3rem;
+    text-align:center;
+    border-radius: 15px;
+}
+.formsearchbut:hover{
+    background-color: #E67E22;
+    border: #E67E22 1px solid;
+    border-radius: 15px;
+}
+.formsearchbut:active{
+    background-color: #E67E22 !important;
+    border: #E67E22 1px solid !important;
+    border-radius: 15px;
+}
+.formsearchbut:focus{
+    background-color: #E67E22 !important;
+    border: #E67E22 1px solid !important;
+    border-radius: 15px;
+    box-shadow: none !important;
+}
