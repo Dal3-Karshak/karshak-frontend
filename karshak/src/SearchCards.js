@@ -31,12 +31,13 @@ export class SearchCards extends Component {
             tried: false,
         }
         console.log(dishData);
-        let foodURL = 'http://localhost:8000/';
+        let foodURL = process.env.REACT_APP_SERVER_URL || 'http://localhost:8000/';
         let url = `${foodURL}food/addFoodDishes?email=${email}`;
         const addDish = await axios.post(url, dishData);
         this.setState({
             showmodal: true,
-        })
+        });
+        this.props.changeshow(index)
     }
     handleClose = () => {
         this.setState({
@@ -54,8 +55,7 @@ export class SearchCards extends Component {
                                 <Card.Body  >
                                     <Card.Title className='searchcardtitle'>  {item.title}</Card.Title>
                                     <Card.Img variant="top" src={item.image} />
-                                    {item.show && <Button>delete</Button>}
-                                    <Button variant="primary" onClick={() => this.addToMyDishes(index)} className='searchCardsButton' >
+                                    <Button variant="primary" onClick={() => this.addToMyDishes(index)} className='searchCardsButton' disabled={item.show}  >
                                         add to my dishes
                                     </Button>
                                 </Card.Body>

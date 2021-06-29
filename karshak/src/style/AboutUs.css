@@ -12,6 +12,15 @@
 background-color: #f7f6f3;
 }
 
+.aboutUsPara{
+  background-color: #f7f6f3;
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  font-size: 110%;
+
+}
+
 .aboutUs-overlay{
     margin-top: 60px;
     font-size: 120%;
