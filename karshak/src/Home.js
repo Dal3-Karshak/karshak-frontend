@@ -23,8 +23,8 @@ export class Home extends Component {
 
                 <div className='hero-text-box'>
                     <h1> Hello food lovers<br></br> First, we eat. Then, we do everything else. </h1>
-                    <a class="btn btn-full" href="">I’m Hungry</a>
-                    <a class="btn home-btn-ghost" href="">My Dishes</a>
+                    <a class="btn btn-full" href="/search">I’m Hungry</a>
+                    <a class="btn home-btn-ghost" href="mydishes">My Dishes</a>
                 </div>
                 <TopClient />
                 <Meals />
