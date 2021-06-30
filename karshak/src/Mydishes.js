@@ -133,10 +133,10 @@ export class Mydishes extends Component {
                                     <Card.Img className='cardimg' variant="top" src={item.image} onClick={() => this.openModel(item.id)} />
                                     <Form onSubmit={(event) => { this.updateMydishes(event) }}>
                                         <Form.Group controlId="formBasicEmail">
-                                            <Form.Control className='notes' type="text"  name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
+                                            <Form.Control className='notes' placeholder='Notes' type="text"  name='feedBack' onChange={(e) => this.changeFeedback(e)} value={this.state.myDishes[index].feedBack} />
                                         </Form.Group>
                                         <Form.Group controlId="formBasicEmail" className='formGroup-checkbox'>
-                                            <label className='checkbox-label'>tried it before </label>
+                                            <label className='checkbox-label'>Tried it before </label>
                                             <Form.Check className='formcheck' type="checkbox" name='checkbox' onChange={(e) => this.changeCheckbox(e)} value={this.state.myDishes[index].tried} defaultChecked={this.state.myDishes[index].tried} />
                                         </Form.Group>
                                         <div className='buttonsmydishes'>

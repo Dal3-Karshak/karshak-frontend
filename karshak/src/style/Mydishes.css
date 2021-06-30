@@ -132,7 +132,7 @@ input[type=checkbox]{
     border-color: #E67E22;
 }
 .feedbackk{
-    text-align: center;
+    text-align:left;
     color: white;
     font-size: 1.5rem;
     margin-top: 1rem;
