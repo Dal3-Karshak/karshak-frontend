@@ -32,6 +32,7 @@ margin-top: 20px;
         background-color: #e67e22;
         border:1px #e67e22 solid;
         border-radius: 200px;
+        cursor: pointer;
     
     }
     .logOut:hover{

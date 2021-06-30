@@ -17,7 +17,7 @@ button:focus{
     width: 25rem ;
     margin: auto;
     height: 29rem !important ;
-    background-color:rgba(0, 0, 0, 0.2) !important; 
+    background-color:rgba(0, 0, 0, 0.3) !important; 
     color: white;
     text-align: center;
 }
