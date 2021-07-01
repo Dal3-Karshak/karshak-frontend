@@ -46,19 +46,19 @@ export class App extends Component {
             <Route exact path="/">
               {this.props.auth0.isAuthenticated ? <Home reciveData={this.reciveData} /> : <Landing />}
             </Route>
-            <Route exact path="/home">
+            <Route path="/home">
               <Home/>
             </Route>
-            <Route  exact path="/search">
+            <Route path="/search">
               <Search myDishes={this.state.myDishes} />
             </Route>
-            <Route exact path="/mydishes">
+            <Route path="/mydishes">
                {this.props.auth0.isAuthenticated &&<Mydishes />} 
             </Route>
-            <Route exact path="/aboutus">
+            <Route path="/aboutus">
                {this.props.auth0.isAuthenticated &&<AboutUs />} 
             </Route>
-            <Route  exact path="/logout">
+            <Route path="/logout">
             </Route>
 
           </Switch>
